@@ -1,0 +1,26 @@
+{
+  "name": "stat-bang",
+  "version": "1.0.4",
+  "description": "Tool for managing markdown/html/etc content for my/your personal site",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index"
+  },
+  "dependencies": {
+    "node-markdown": "0.1.1",
+    "connect": "2.7.1"
+  },
+  "repository": "",
+  "keywords": [
+    "markdown",
+    "static"
+  ],
+  "author": {
+    "name": "itsjoesullivan"
+  },
+  "license": "BSD",
+  "readme": "#stat!\nTool to handle markdown/html/etc for a personal website. Minimizing (1) distance from content (md) to publishing (html) and (2) maintenance/overhead.\n\n#usage\n\n\tnpm install stat-bang\n\nThen:\n\n\tvar statBang = require('stat-bang');\n\tstatBang.start(80);\n\n\n##API\n\n###One folder\n\nHere's a principle that this project goes by: your public folder is your src folder.\n\n###Directory structure\n\n\tjoesul.li\n\t\tnode_modules\n\t\t\tstat-bang\n\t\tserver.js\n\t\tvan\n\t\t\tcontent\n\t\t\t\tindex.html\n\t\ttemplate.html\n\nNow, visiting http://joesul.li/van/content will serve index.html\n\n###Example + Templating\n\nMarkdown is a great way to compose in HTML-land, but it's not the whole shebang. So, when the site is rendered, it looks for the nearest template.html ancestor and injects the markdown into it. Check it out:\n\n\t/content\n\t\t/hello\n\t\t\tindex.md\n\t\t\ttemplate.html\n\nindex.md looks like:\n\n\t#hi\n\ntemplate.html looks like:\n\n\t<html>\n\t\t<!-- content -->\n\t</html>\n\nSo,\n\n\tnode server.js &\n\tcat http://joesul.li/van/content/hello\n\n\t>\t<html>\n\t>\t<h1>hi</h1>\n\t>\t</html>\n\n\n###That's it\n\nOk, that's enough to get started!\n",
+  "readmeFilename": "README.md",
+  "_id": "stat-bang@1.0.4",
+  "_from": "stat-bang"
+}
